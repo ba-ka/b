@@ -52,7 +52,7 @@ export default function Layout({ children, home, title}: { children: React.React
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <header className={`fixed w-full px-6 sm:px-0 z-50 header-section duration-200 ${headerDown && "bg-gray-50"}`}>
+            <header className={`fixed w-full px-6 sm:px-0 z-50 header-section duration-200 drop-shadow ${headerDown && "bg-gray-50"}`}>
                 <nav className="flex items-center justify-between flex-wrap py-3 z-10 top-0 sm:container sm:mx-auto">
                 <div className="flex items-center flex-shrink-0 mr-6">
                     <Link href="/">
