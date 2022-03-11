@@ -64,14 +64,10 @@ export default function Layout({ children, home, title}: { children: React.React
 
                 <div className="block lg:hidden">
                     <button id="nav-toggle" onClick={openHeader} className="flex items-center py-2 text-gray-200 border-gray-200 hover:text-white hover:border-white">
-                        <div className={`space-y-1.5 ${headerOpen ? "hidden" : "block"}`}>
-                            <span className={`block w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
-                            <span className={`block w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
-                            <span className={`block w-5 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
-                        </div>
-                        <div className={`relative h-[18px] w-[26px] ${!headerOpen ? "hidden" : "block"}`}>
-                            <span className={`absolute right-0 top-2 rotate-45 w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
-                            <span className={`absolute right-0 top-2 -rotate-45 w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
+                        <div className={`${headerOpen ? "relative h-[14px] w-[32px]" : ""}`}>
+                            <span className={`${headerOpen ? "absolute right-0 top-1 rotate-45" : "block"} w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
+                            <span className={`${headerOpen ? "absolute right-0 top-1 -rotate-45" : "block mt-[5px]"}  w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
+                            <span className={`${headerOpen ? "absolute hidden" : "block mt-[5px]"} w-5 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
                         </div>
                     </button>
                 </div>
