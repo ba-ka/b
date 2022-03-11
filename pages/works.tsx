@@ -13,7 +13,7 @@ const Works: NextPage = () => {
     <Layout title="works">
       <div className="sm:container sm:mx-auto pt-8 sm:pt-12 px-6 sm:px-0">
         {worksList?.map((item) => (
-          <figure className="bg-gray-50 border border-gray-900 mb-6">
+          <figure className="bg-gray-50 border border-gray-900 mb-6" key={item?.title}>
             <div className="p-6 md:p-8 text-left space-y-4">
               <h2 className="text-4xl">{item.title}</h2>
               <blockquote>
