@@ -52,20 +52,26 @@ export default function Layout({ children, home, title}: { children: React.React
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <header className={`fixed w-full px-4 sm:px-0 z-50 header-section duration-200 ${headerDown && "bg-gray-50"}`}>
+            <header className={`fixed w-full px-6 sm:px-0 z-50 header-section duration-200 ${headerDown && "bg-gray-50"}`}>
                 <nav className="flex items-center justify-between flex-wrap py-3 z-10 top-0 sm:container sm:mx-auto">
                 <div className="flex items-center flex-shrink-0 mr-6">
-                    <a className="no-underline" href="/">
-                    <span className={`text-2xl ${headerDown ? "text-gray" : "text-white"}`}><img className="inline h-4" src="/logo.png" /> bakahu</span>
-                    </a>
+                    <Link href="/">
+                        <a className="no-underline">
+                            <span className={`text-2xl ${headerDown ? "text-gray" : "text-white"}`}><img className="inline h-4" src="/logo.png" /> bakahu</span>
+                        </a>
+                    </Link>
                 </div>
 
                 <div className="block lg:hidden">
                     <button id="nav-toggle" onClick={openHeader} className="flex items-center py-2 text-gray-200 border-gray-200 hover:text-white hover:border-white">
-                        <div className="space-y-1.5">
+                        <div className={`space-y-1.5 ${headerOpen ? "hidden" : "block"}`}>
                             <span className={`block w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
                             <span className={`block w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
                             <span className={`block w-5 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
+                        </div>
+                        <div className={`relative h-[18px] w-[26px] ${!headerOpen ? "hidden" : "block"}`}>
+                            <span className={`absolute right-0 top-2 rotate-45 w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
+                            <span className={`absolute right-0 top-2 -rotate-45 w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"}`}></span>
                         </div>
                     </button>
                 </div>
