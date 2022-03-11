@@ -52,12 +52,12 @@ export default function Layout({ children, home, title}: { children: React.React
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <header className={`fixed w-full px-6 sm:px-0 z-50 header-section duration-200 drop-shadow ${headerDown && "bg-gray-50"}`}>
+            <header className={`fixed w-full px-6 sm:px-0 z-50 header-section duration-200 drop-shadow ${(headerDown || headerOpen) && "bg-gray-50"}`}>
                 <nav className="flex items-center justify-between flex-wrap py-3 z-10 top-0 sm:container sm:mx-auto">
                 <div className="flex items-center flex-shrink-0 mr-6">
                     <Link href="/">
                         <a className="no-underline">
-                            <span className={`text-2xl ${headerDown ? "text-gray" : "text-white"}`}><img className="inline h-4" src="/logo.png" /> bakahu</span>
+                            <span className={`text-2xl ${(headerDown || headerOpen) ? "text-gray" : "text-white"}`}><img className="inline h-4" src="/logo.png" /> bakahu</span>
                         </a>
                     </Link>
                 </div>
@@ -65,9 +65,9 @@ export default function Layout({ children, home, title}: { children: React.React
                 <div className="block lg:hidden">
                     <button id="nav-toggle" onClick={openHeader} className="flex items-center py-2 text-gray-200 border-gray-200 hover:text-white hover:border-white">
                         <div className={`${headerOpen ? "relative h-[14px] w-[32px]" : ""}`}>
-                            <span className={`${headerOpen ? "absolute right-0 top-1 rotate-45" : "block"} w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
-                            <span className={`${headerOpen ? "absolute right-0 top-1 -rotate-45" : "block mt-[5px]"}  w-8 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
-                            <span className={`${headerOpen ? "absolute hidden" : "block mt-[5px]"} w-5 h-0.5 ${headerDown ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
+                            <span className={`${headerOpen ? "absolute right-0 top-1 rotate-45" : "block"} w-8 h-0.5 ${(headerDown || headerOpen) ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
+                            <span className={`${headerOpen ? "absolute right-0 top-1 -rotate-45" : "block mt-[5px]"}  w-8 h-0.5 ${(headerDown || headerOpen) ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
+                            <span className={`${headerOpen ? "absolute hidden" : "block mt-[5px]"} w-5 h-0.5 ${(headerDown || headerOpen) ? "bg-gray-900" : "bg-gray-50"} duration-150`}></span>
                         </div>
                     </button>
                 </div>
@@ -77,7 +77,7 @@ export default function Layout({ children, home, title}: { children: React.React
                     {menuItems?.map((item) => (
                         <li className="lg:mr-3" key={item?.title}>
                         <Link href={item?.url}>
-                            <a className={`block lg:inline-block text-right lg:text-left no-underline py-2 px-4 ${headerDown ? "text-gray-900" : "text-gray-50"} ${headerOpen && "bg-gray-50/[0.2]" }`}>
+                            <a className={`block lg:inline-block text-right lg:text-left no-underline py-2 px-4 ${(headerDown || headerOpen) ? "text-gray-900" : "text-gray-50"}`}>
                             {item?.title}
                             </a>
                         </Link>
