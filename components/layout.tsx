@@ -15,6 +15,14 @@ export default function Layout({ children, home, title}: { children: React.React
         } else setHeaderOpen(true);
     }
 
+    function getYear() {
+        const time_right_now = Date.now();
+        const current_date = new Date(time_right_now);
+        const year_right_now = current_date.getFullYear();
+
+        return year_right_now;
+    }
+
     useEffect(() => {
         function checkScroll() {
             if (window.scrollY > 20) {
@@ -96,7 +104,7 @@ export default function Layout({ children, home, title}: { children: React.React
             <main>{children}</main>
 
             <footer className="flex w-full items-center justify-center py-6">
-                &copy; 2022 bakahu, powered by&nbsp;
+                &copy; { getYear() } bakahu, powered by&nbsp;
                 <a className="flex items-center justify-center gap-2" href="https://ba-ka.org/" target="_blank" rel="noopener noreferrer">
                 ba-ka
                 </a>
